@@ -25,13 +25,13 @@ async function batchNtsTransfer(accounts, keyProvider) {
   }
 }
 
-export async function execAirdrop(keyProvider) {
+export async function execAirdrop(keyProvider, draw) {
   try {
-    let accounts = await fetchVoteAccounts();
+    let accounts = await fetchVoteAccounts(undefined, draw);
     await batchNtsTransfer(accounts, keyProvider);
     while (accounts.length > 0) {
       let lastId = accounts[accounts.length-1]._id;
-      accounts = await fetchVoteAccounts(lastId);
+      accounts = await fetchVoteAccounts(lastId, draw);
       await batchNtsTransfer(accounts, keyProvider);
     }
   } catch (e) {

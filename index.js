@@ -20,7 +20,7 @@ if (!draw || isNaN(draw)) {
     console.log('begin to get vote action snapshot...');
     actionSnapshot(draw).then(() => {
       console.log("finished generate snapshot");
-      execAirdrop(keyProvider);
+      execAirdrop(keyProvider, draw);
     }).then(() => process.exit())
   })
 } else {
@@ -34,7 +34,7 @@ if (!draw || isNaN(draw)) {
     console.log('begin to get vote action snapshot...');
     actionSnapshot(draw).then(() => {
       console.log("finished generate snapshot");
-      execAirdrop(keyProvider);
+      execAirdrop(keyProvider, draw);
     }).then(() => process.exit())
   })
 }

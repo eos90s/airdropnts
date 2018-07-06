@@ -69,15 +69,15 @@ export async function isDrawExist(draw) {
   return voteAccount ? true : false;
 }
 
-export async function fetchVoteAccounts(id, limit) {
+export async function fetchVoteAccounts(id, draw, limit) {
   let cnt = 1000;
   if (limit) {
     cnt = limit;
   }
   if (!id) {
-    return await VoteAccountModel.find({}).sort({"_id": -1}).limit(cnt);
+    return await VoteAccountModel.find({"draw": draw}).sort({"_id": -1}).limit(cnt);
   }
-  return await VoteAccountModel.find({"_id": {"$lt": id}}).sort({"_id": -1}).limit(cnt);
+  return await VoteAccountModel.find({"_id": {"$lt": id}, "draw", draw}).sort({"_id": -1}).limit(cnt);
 }
 
 export async function updateAirdropStatus(id, status) {
