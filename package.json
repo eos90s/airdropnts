@@ -11,6 +11,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "babel-register": "^6.26.0",
     "debug": "~2.6.9",
-    "eosjs": "^15.0.3"
+    "eosjs": "^15.0.3",
+    "mongoose": "^5.2.0"
   }
 }
